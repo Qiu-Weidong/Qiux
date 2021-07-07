@@ -1,0 +1,29 @@
+###############################
+# Bochs的配置文件
+###############################
+
+# 模拟器的内存
+megs: 32
+
+romimage:file="/usr/local/share/bochs/BIOS-bochs-latest"
+vgaromimage:file="/usr/local/share/bochs/VGABIOS-lgpl-latest"
+
+# 使用磁盘
+# floppya:1_44=Qiux.img, status=inserted
+
+ata0:enabled=1,ioaddr1=0x1f0, ioaddr2=0x3f0, irq=14
+ata0-master: type=disk, path="Qiux.img", mode=flat, cylinders=20, heads=16, spt=63
+
+# 启动盘
+boot: disk 
+
+# 日志文件
+log: bochsout.txt
+
+# 是否使用鼠标
+mouse: enabled=0
+
+# 使用gdbstub进行调试
+gdbstub:enabled=1,port=1234,text_base=0,data_base=0,bss_base=0
+
+
